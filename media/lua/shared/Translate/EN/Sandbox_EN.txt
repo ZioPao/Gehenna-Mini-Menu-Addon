@@ -1,0 +1,7 @@
+Sandbox_EN = {
+    Sandbox_GehennaDiceSystem = "Gehenna RP - Dice System",
+
+    Sandbox_GehennaDiceSystem_ShowStatusEffects = "Show Status Effects",
+    Sandbox_GehennaDiceSystem_DelayUpdateStatusEffects = "Delay between status effects updates",
+    Sandbox_GehennaDiceSystem_RenderDistanceStatusEffects = "Status Effects Render Distance",
+}

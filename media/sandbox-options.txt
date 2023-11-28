@@ -1,0 +1,31 @@
+VERSION = 1,
+
+
+option GehennaDiceSystem.ShowStatusEffects
+{
+    type = boolean,
+    default = true,
+
+    page = GehennaDiceSystem,
+    translation = GehennaDiceSystem_ShowStatusEffects,
+}
+option GehennaDiceSystem.DelayUpdateStatusEffects
+{
+    type = integer,
+    min = 1,
+    max = 100,
+    default = 10,
+
+    page = GehennaDiceSystem,
+    translation = GehennaDiceSystem_DelayUpdateStatusEffects,
+}
+option GehennaDiceSystem.RenderDistanceStatusEffects
+{
+    type = integer,
+    min = 10,
+    max = 100,
+    default = 20,
+
+    page = GehennaDiceSystem,
+    translation = GehennaDiceSystem_RenderDistanceStatusEffects,
+}
