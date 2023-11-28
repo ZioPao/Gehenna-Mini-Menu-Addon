@@ -1,7 +1,6 @@
 -- Player data saved locally here
 DICE_CLIENT_MOD_DATA = {}
 
----@class PlayerHandler
 local PlayerHandler = {
     handlers = {}
 }

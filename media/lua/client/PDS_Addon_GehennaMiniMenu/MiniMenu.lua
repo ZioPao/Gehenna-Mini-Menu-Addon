@@ -1,4 +1,4 @@
--- TODO If you are setting your stats and hover somebody that has already set their stats, your stats are gonna die :(
+if not getActivatedMods():contains("PandemoniumDiceSystem") then return end
 
 -- Caching stuff
 local playerBase = __classmetatables[IsoPlayer.class].__index
@@ -6,7 +6,7 @@ local getNum = playerBase.getPlayerNum
 local heartIco = getTexture("media/ui/dnd_heart.png") -- Document icons created by Freepik - Flaticon - Document
 local armorIco = getTexture("media/ui/dnd_armor.png")
 
-local PlayerHandler = require("DiceSystem_PlayerHandler")
+local PlayerHandler = require("DiceSystem_PlayerHandling")
 local CommonUI = require("UI/DiceSystem_CommonUI")
 
 -----------------
@@ -18,10 +18,9 @@ local B_ARMORCLASS_STR = "<CENTRE> <SIZE:large> <RGB:1,0,0> %d"
 
 ------------------
 
-HoverUI = ISCollapsableWindow:derive("HoverUI")
+local HoverUI = ISCollapsableWindow:derive("HoverUI")
 HoverUI.openMenus = {}
 
----comment
 ---@param pl IsoPlayer
 ---@param username string Just the username of the player, since we've already referenced it before
 function HoverUI.Open(pl, username)
