@@ -129,13 +129,13 @@ function HoverUI:createChildren()
     self.panelBottom.panelHealth.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
     self.panelBottom.panelHealth.borderColor = { r = 0.4, g = 0.4, b = 0.4, a = 1 }
 
-    self.panelBottom.panelArmorClass.marginTop = 0
-    self.panelBottom.panelArmorClass.marginBottom = 0
-    self.panelBottom.panelArmorClass.marginLeft = 0
-    self.panelBottom.panelArmorClass.marginRight = 0
-    self.panelBottom.panelArmorClass.background = true
-    self.panelBottom.panelArmorClass.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
-    self.panelBottom.panelArmorClass.borderColor = { r = 0.4, g = 0.4, b = 0.4, a = 1 }
+    self.panelBottom.panelArmorBonus.marginTop = 0
+    self.panelBottom.panelArmorBonus.marginBottom = 0
+    self.panelBottom.panelArmorBonus.marginLeft = 0
+    self.panelBottom.panelArmorBonus.marginRight = 0
+    self.panelBottom.panelArmorBonus.background = true
+    self.panelBottom.panelArmorBonus.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
+    self.panelBottom.panelArmorBonus.borderColor = { r = 0.4, g = 0.4, b = 0.4, a = 1 }
 end
 
 function HoverUI:update()
@@ -147,20 +147,20 @@ function HoverUI:prerender()
     ISCollapsableWindow.prerender(self)
 
     local healthText = getText("IGUI_MiniUI_Health")
-    local armorClassText = getText("IGUI_MiniUI_ArmorClass")
+    local armorBonusText = getText("IGUI_MiniUI_ArmorBonus")
 
     local yLabel = self.panelBottom.panelHealth:getY() - getTextManager():MeasureStringY(UIFont.Large, healthText)                                                                                                                -- Additional 1 offset
     local xHealth = (self.panelBottom.panelHealth:getX() + self.panelBottom.panelHealth:getWidth() / 2) - getTextManager():MeasureStringX(UIFont.Large, healthText) / 2
     self.panelBottom:drawText(healthText, xHealth, yLabel, 1, 1, 1, 1, UIFont.Large)
 
-    local xArmorClass = (self.panelBottom.panelArmorClass:getX() + self.panelBottom.panelArmorClass:getWidth() / 2) - getTextManager():MeasureStringX(UIFont.Large, armorClassText) / 2
-    self.panelBottom:drawText(armorClassText, xArmorClass, yLabel, 1, 1, 1, 1, UIFont.Large)
+    local xArmorBonus = (self.panelBottom.panelArmorBonus:getX() + self.panelBottom.panelArmorBonus:getWidth() / 2) - getTextManager():MeasureStringX(UIFont.Large, armorBonusText) / 2
+    self.panelBottom:drawText(armorBonusText, xArmorBonus, yLabel, 1, 1, 1, 1, UIFont.Large)
 
     local iconSize = self.frameSize
 
 
     self.panelBottom.panelHealth:drawTextureScaled(heartIco, 0, 0, iconSize, iconSize, 0.2, 1, 1, 1)
-    self.panelBottom.panelArmorClass:drawTextureScaled(armorIco, 0, 0, iconSize, iconSize, 0.2, 1, 1, 1)
+    self.panelBottom.panelArmorBonus:drawTextureScaled(armorIco, 0, 0, iconSize, iconSize, 0.2, 1, 1, 1)
 end
 
 function HoverUI:render()
@@ -183,10 +183,10 @@ function HoverUI:render()
 
     --* Armor Class *--
     local armorStr = string.format(B_ARMORCLASS_STR, self.playerHandler:getArmorClass())
-    self.panelBottom.panelArmorClass.marginTop = self.panelBottom.panelArmorClass:getHeight() / 2 -
+    self.panelBottom.panelArmorBonus.marginTop = self.panelBottom.panelArmorBonus:getHeight() / 2 -
     getTextManager():MeasureStringY(UIFont.Large, armorStr) / 2
-    self.panelBottom.panelArmorClass:setText(armorStr)
-    self.panelBottom.panelArmorClass.textDirty = true
+    self.panelBottom.panelArmorBonus:setText(armorStr)
+    self.panelBottom.panelArmorBonus.textDirty = true
 end
 
 function HoverUI:close()
