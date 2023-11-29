@@ -1,7 +1,7 @@
 id=PDS_GehennaMiniMenu
-name=[ADDON] Pandemonium RP Dice System - Gehenna Mini Menu
+name=Pandemonium Dice System [ADDON] - Gehenna Mini Menu
 require=PandemoniumDiceSystem
-description=An additional mini menu system for PRP Dice System
+description=An additional mini menu system for Pandemonium Dice System
 poster=poster.png
 authors=Pao
 icon=icon.png
