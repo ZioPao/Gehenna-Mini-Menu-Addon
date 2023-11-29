@@ -19,7 +19,8 @@ local B_HEALTH_STR = "<CENTRE> <SIZE:large> <RGB:0,1,0> %d/%d"
 local B_ARMORBONUS_STR = "<CENTRE> <SIZE:large> <RGB:1,0,0> %d"
 
 ------------------
-
+---@class HoverUI : ISCollapsableWindow
+---@field playerHandler PlayerHandler
 local HoverUI = ISCollapsableWindow:derive("HoverUI")
 HoverUI.openMenus = {}
 
@@ -184,7 +185,7 @@ function HoverUI:render()
     self.panelBottom.panelHealth.textDirty = true
 
     --* Armor Bonus *--
-    local armorStr = string.format(B_ARMORBONUS_STR, self.playerHandler:getArmorClass())
+    local armorStr = string.format(B_ARMORBONUS_STR, self.playerHandler:getArmorBonus())
     self.panelBottom.panelArmorBonus.marginTop = self.panelBottom.panelArmorBonus:getHeight() / 2 -
     getTextManager():MeasureStringY(UIFont.Large, armorStr) / 2
     self.panelBottom.panelArmorBonus:setText(armorStr)
