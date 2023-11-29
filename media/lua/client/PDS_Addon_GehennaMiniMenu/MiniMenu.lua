@@ -1,5 +1,7 @@
 if not getActivatedMods():contains("PandemoniumDiceSystem") then return end
 
+-- TODO Make this more generic, so that users will be able to output whatever stats they want instead of Health and Armor Bonus
+
 -- Caching stuff
 local playerBase = __classmetatables[IsoPlayer.class].__index
 local getNum = playerBase.getPlayerNum
@@ -14,7 +16,7 @@ local CommonUI = require("UI/DiceSystem_CommonUI")
 --- Constants
 -- Line at the start is necessary to let this game place the text in the correct position, at the center of the box
 local B_HEALTH_STR = "<CENTRE> <SIZE:large> <RGB:0,1,0> %d/%d"
-local B_ARMORCLASS_STR = "<CENTRE> <SIZE:large> <RGB:1,0,0> %d"
+local B_ARMORBONUS_STR = "<CENTRE> <SIZE:large> <RGB:1,0,0> %d"
 
 ------------------
 
@@ -118,7 +120,7 @@ function HoverUI:createChildren()
     local xArmorPanel = xCenter + xOffset + 1                                         -- For some fucking reason there's a missing pixel, I hate this game
 
     CommonUI.AddPanel(self.panelBottom, "panelHealth", self.frameSize, self.frameSize, xHealthPanel, yPanels)
-    CommonUI.AddPanel(self.panelBottom, "panelArmorClass", self.frameSize, self.frameSize, xArmorPanel, yPanels)
+    CommonUI.AddPanel(self.panelBottom, "panelArmorBonus", self.frameSize, self.frameSize, xArmorPanel, yPanels)
 
 
     self.panelBottom.panelHealth.marginTop = 0
@@ -181,8 +183,8 @@ function HoverUI:render()
     self.panelBottom.panelHealth:setText(healthStr)
     self.panelBottom.panelHealth.textDirty = true
 
-    --* Armor Class *--
-    local armorStr = string.format(B_ARMORCLASS_STR, self.playerHandler:getArmorClass())
+    --* Armor Bonus *--
+    local armorStr = string.format(B_ARMORBONUS_STR, self.playerHandler:getArmorClass())
     self.panelBottom.panelArmorBonus.marginTop = self.panelBottom.panelArmorBonus:getHeight() / 2 -
     getTextManager():MeasureStringY(UIFont.Large, armorStr) / 2
     self.panelBottom.panelArmorBonus:setText(armorStr)
@@ -216,7 +218,7 @@ local function FillHoverMenuOptions(player, context, worldobjects, test)
                     if instanceof(o, "IsoPlayer") and (not o:isInvisible() or isAdmin()) then
                         local username = o:getUsername()
                         if subMenu == nil then
-                            local optionHoverMenu = context:addOption("Dice Mini Menu", worldobjects, nil)
+                            local optionHoverMenu = context:addOption(getText("ContextMenu_PDS_MiniMenu_OpenMain"), worldobjects, nil)
                             subMenu = ISContextMenu:getNew(context)
                             context:addSubMenu(optionHoverMenu, subMenu)
                         end
@@ -224,9 +226,9 @@ local function FillHoverMenuOptions(player, context, worldobjects, test)
                         local plDescriptor = o:getDescriptor()
                         local playerName = DiceSystem_Common.GetForenameWithoutTabs(plDescriptor)
                         if HoverUI.openMenus[username] == nil then
-                            subMenu:addOption("Open Menu for " .. playerName, o, HoverUI.Open, username)
+                            subMenu:addOption(getText("ContextMenu_PDF_MiniMenu_OpenFor", playerName), o, HoverUI.Open, username)
                         else
-                            subMenu:addOption("Close Menu for " .. playerName, username, HoverUI.Close)
+                            subMenu:addOption(getText("ContextMenu_PDF_MiniMenu_CloseFor", playerName), username, HoverUI.Close)
                         end
                     end
                 end

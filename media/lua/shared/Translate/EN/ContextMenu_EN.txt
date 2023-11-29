@@ -1,0 +1,6 @@
+ContextMenu_EN = {
+    ContextMenu_PDS_MiniMenu_OpenMain = "Dice System Mini Menu",
+    ContextMenu_PDF_MiniMenu_OpenFor = "Open Menu for %1",
+    ContextMenu_PDF_MiniMenu_CloseFor = "Close Menu for %1",
+    
+}
