@@ -5,8 +5,8 @@ if not getActivatedMods():contains("PandemoniumDiceSystem") then return end
 -- Caching stuff
 local playerBase = __classmetatables[IsoPlayer.class].__index
 local getNum = playerBase.getPlayerNum
-local heartIco = getTexture("media/ui/dnd_heart.png") -- Document icons created by Freepik - Flaticon - Document
-local armorIco = getTexture("media/ui/dnd_armor.png")
+local heartIco = getTexture("media/ui/PDS_Addon_GehennaMiniMenu/dnd_heart.png") -- Document icons created by Freepik - Flaticon - Document
+local armorIco = getTexture("media/ui/PDS_Addon_GehennaMiniMenu/dnd_armor.png")
 
 local PlayerHandler = require("DiceSystem_PlayerHandling")
 local CommonUI = require("UI/DiceSystem_CommonUI")
