@@ -8,7 +8,15 @@
             "type": "shell",
             "options": {"statusbar": {"label": "$(combine) Assemble Mod (GehennaMiniMenu)"}},
             "command": "python ${config:zomboid_user_folder}/PaosCrap/make_workshop_pack.py picch ${workspaceFolderBasename}",
+        },
+        {
+            "label": "Run Zomboid Test Server",
+            "options": {"statusbar": {"label": "$(run) Zomboid Server (Pandemonium+Gehenna)"}},
+            "type": "shell",
+            "command":"\"${config:zomboid_server_folder}\\StartServer64_nosteam_custom.bat\" pandegehenna",
+            "problemMatcher": [
+                "$eslint-stylish"
+            ]
         }
-
     ]
 }

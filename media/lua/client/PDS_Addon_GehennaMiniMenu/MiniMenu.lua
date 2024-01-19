@@ -2,6 +2,9 @@ if not getActivatedMods():contains("PandemoniumDiceSystem") then return end
 
 -- TODO Make this more generic, so that users will be able to output whatever stats they want instead of Health and Armor Bonus
 
+-- ADDON LOGO BY EDIT.IM
+-- <a href="https://www.flaticon.com/free-icons/addon" title="addon icons">Addon icons created by edt.im - Flaticon</a>
+
 -- Caching stuff
 local playerBase = __classmetatables[IsoPlayer.class].__index
 local getNum = playerBase.getPlayerNum
@@ -51,6 +54,8 @@ function HoverUI.Open(pl, username)
         HoverUI.openMenus[username] = HoverUI:new(x, y, width, height, pl, handler)
         HoverUI.openMenus[username]:initialise()
         HoverUI.openMenus[username]:bringToTop()
+    else
+        pl:Say(getText("IGUI_MiniUI_CantOpen"))
     end
 
 end

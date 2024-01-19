@@ -1,0 +1,6 @@
+version=1
+id=3140993309
+title=Pandemonium Dice System [ADDON] - Gehenna Mini Menu
+description=WIP
+tags=Build 41;Framework;Interface;Misc
+visibility=private

@@ -1,4 +1,7 @@
 IG_UI_EN = {
     IGUI_MiniUI_Health = "HP",
     IGUI_MiniUI_ArmorBonus = "AB",
+
+
+    IGUI_MiniUI_CantOpen = "Player didn't set their stats, can't open Mini Menu"
 }
